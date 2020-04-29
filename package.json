@@ -1,0 +1,44 @@
+{
+  "name": "rollup-entrypoint-generator",
+  "version": "0.1.0",
+  "description": "Entry point generator based on code for rollup",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbernardeau/rollup-entrypoint-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mbernardeau/rollup-entrypoint-generator/issues"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint index.js"
+  },
+  "author": "Mathias Bernardeau",
+  "license": "MIT",
+  "dependencies": {
+    "find-in-files": "~0.5.0",
+    "lodash": "~4.17.15"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "jest": "^25.5.1",
+    "prettier": "^2.0.5",
+    "eslint-config-google": "^0.14.0"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true,
+    "arrowParens": "avoid",
+    "endOfLine": "auto",
+    "trailingComma": "all"
+  },
+  "jest": {
+    "collectCoverage": true
+  }
+}
