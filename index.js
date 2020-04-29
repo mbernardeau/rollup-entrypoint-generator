@@ -34,12 +34,15 @@ const findCorrectPath = relPath => {
  *
  * @param {String} indexPath Access path to the `index.js` file containing the export line
  * @param {String} line Content of the export line
+ * @return {Object}
+ * @property {String} componentName Name of the exported component
+ * @property {String} componentPath Relative path of the found entry point
  */
 const formatResultForMatch = indexPath => line => {
   const match = line.match(/^export \{ default as ([a-zA-Z]+) } from '(.\/[a-zA-Z-\\./]+)'$/)
 
   if (match === null) {
-    // Si la ligne commence par '//', il s'agit d'un export commenté, on ignore
+    // If line starts with '//', it's a commented export, ignoring...
     if (!line.startsWith('//')) {
       console.warn('Could not find default only export for "', line, '" in ', indexPath)
     }
@@ -55,15 +58,16 @@ const formatResultForMatch = indexPath => line => {
 }
 
 /**
- * Gather all results of a file in an array 
+ * Gather all results of a file in an array
  *
  * @param {Array<String, Object>} entry
+ * @return {Array}
  */
 const formatResultsForFile = ([indexPath, { line }]) => {
   return line.map(formatResultForMatch(indexPath)).filter(e => !!e)
 }
 
-const generateEntryPoints = async (sourcePath) => {
+const generateEntryPoints = async sourcePath => {
   try {
     const files = await findInFiles.find('export { default as ', sourcePath, 'index.js$')
 

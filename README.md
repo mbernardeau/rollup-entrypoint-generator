@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to rollup-entrypoint-generator 👋</h1>
+<h1 align="center">Welcome to rollup-entrypoint-generator</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
   <img src="https://img.shields.io/badge/node-%3E%3D10-blue.svg" />
@@ -22,24 +22,28 @@
 ## Install
 
 ```sh
-npm install
+npm install rollup-entrypoint-generator --save-dev
 ```
 
 ## Usage
 
-TODO
+```js
+// rollup.config.js
+const { generateEntryPoints } = require('./generateEntryPoints')
 
-## Run tests
-
-```sh
-npm test
+export default generateEntryPoints('./src').then(input => ({
+  input,
+  // rest of your rollup config
+})
 ```
+
+TODO
 
 ## Author
 
 👤 **Mathias Bernardeau**
 
-* Github: [@mbernardeau](https://github.com/mbernardeau)
+- Github: [@mbernardeau](https://github.com/mbernardeau)
 
 ## 🤝 Contributing
 
@@ -54,5 +58,6 @@ Give a ⭐️ if this project helped you!
 Copyright © 2020 [Mathias Bernardeau](https://github.com/mbernardeau).<br />
 This project is [MIT](https://github.com/mbernardeau/rollup-entrypoint-generator/blob/master/LICENSE) licensed.
 
-***
+---
+
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
