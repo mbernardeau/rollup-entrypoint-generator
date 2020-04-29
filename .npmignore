@@ -1,0 +1,7 @@
+**/*.spec.js
+test-source/**
+coverage/**
+.vscode/**
+.circleci/**
+.eslintignore
+.eslintrc.js

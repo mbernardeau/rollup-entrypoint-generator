@@ -25,19 +25,29 @@
 npm install rollup-entrypoint-generator --save-dev
 ```
 
+## Why
+
+With Rollup, it is easy to create a tree-shakable library using multiple entrypoints. Each entrypoint is a module that can be imported without the others.
+
+The build process can generate a file per entry point, allowing tree shake by default for library consumers.
+
+The downside is that we need to maintain a list of entrypoints. This lib helps automating this task.
+
+## How it works
+
+Find every export of the style `export { default as ComponentName } from 'componentPath'`. Each one of them with generate an entry point with the name `ComponentName`.
+
 ## Usage
 
 ```js
 // rollup.config.js
-const { generateEntryPoints } = require('./generateEntryPoints')
+const { generateEntryPoints } = require('rollup-entrypoint-generator')
 
 export default generateEntryPoints('./src').then(input => ({
   input,
-  // rest of your rollup config
+  // ...rest of your rollup config
 })
 ```
-
-TODO
 
 ## Author
 
