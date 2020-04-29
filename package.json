@@ -3,12 +3,17 @@
   "version": "0.0.1",
   "description": "Entry point generator based on code for rollup",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbernardeau/rollup-entrypoint-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mbernardeau/rollup-entrypoint-generator/issues"
+  },
   "engines": {
     "node": ">=10"
   },
-  "scripts": {
-    "test": "test"
-  },
+  "scripts": {},
   "author": "Mathias Bernardeau",
   "license": "MIT",
   "dependencies": {
