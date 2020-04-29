@@ -9,10 +9,9 @@ jobs:
     steps:
       - checkout
       - node/install-packages
-      - run: ls -la node_modules
       - run: npm run lint
 workflows:
   build-and-test:
     jobs:
-      # - node/test
+      - node/test
       - lint
