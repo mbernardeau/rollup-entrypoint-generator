@@ -1,21 +1,17 @@
 version: 2.1
 orbs:
-  node: circleci/node@1.1.6
+  node: circleci/node@2.0.3
 jobs:
-  build-and-test:
-    docker:
-      - image: circleci/node:10
+  lint:
     executor:
       name: node/default
+      tag: '10'
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: node -v
-            - run: npm install
-            - run: npm run lint
-            - run: npm test
+      - node/install-packages
+      - run: npm run lint
 workflows:
   build-and-test:
     jobs:
-      - build-and-test
+      - node/test
+      - lint
