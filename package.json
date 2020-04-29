@@ -1,6 +1,6 @@
 {
   "name": "rollup-entrypoint-generator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Entry point generator based on code for rollup",
   "main": "index.js",
   "repository": {
@@ -21,7 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "find-in-files": "~0.5.0",
-    "lodash": "~4.17.15"
+    "lodash.flatmap": "~4.5.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
