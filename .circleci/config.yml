@@ -3,12 +3,15 @@ orbs:
   node: circleci/node@1.1.6
 jobs:
   build-and-test:
+    docker:
+      - image: circleci/node:10
     executor:
       name: node/default
     steps:
       - checkout
       - node/with-cache:
           steps:
+            - run: node -v
             - run: npm install
             - run: npm run lint
             - run: npm test
