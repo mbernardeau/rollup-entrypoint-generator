@@ -1,7 +1,7 @@
 const path = require('path')
 const fsSync = require('fs')
 const findInFiles = require('find-in-files')
-const flatMap = require('lodash/flatMap')
+const flatMap = require('lodash.flatmap')
 
 /**
  * Find correct entry point based on access path
