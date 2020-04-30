@@ -10,4 +10,13 @@ describe('rollup-entrypoint-generator', () => {
     expect(entrypoints.JsModule).toBe('./test-source/jsModule.js')
     expect(entrypoints.JsModuleWithExtension).toBe('./test-source/jsModule.js')
   })
+
+  it('should accept custom extensions', async () => {
+    const entrypoints = await generateEntryPoints('./test-source', { extensions: ['js', 'svg'] })
+
+    expect(entrypoints.ComponentModule).toBe('./test-source/nestedModule/reactModule/component.svg')
+    expect(entrypoints.FolderModule).toBe('./test-source/folderModule/index.js')
+    expect(entrypoints.JsModule).toBe('./test-source/jsModule.js')
+    expect(entrypoints.JsModuleWithExtension).toBe('./test-source/jsModule.js')
+  })
 })
