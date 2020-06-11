@@ -49,6 +49,41 @@ export default generateEntryPoints('./src').then(input => ({
 })
 ```
 
+## Configuration
+
+`generateEntryPoints` accepts an object containing configuration keys as a second parameter.
+
+**Example**:
+
+```js
+// rollup.config.js
+const { generateEntryPoints } = require('rollup-entrypoint-generator')
+
+export default generateEntryPoints('./src', { extensions: ['js'] }).then(input => ({
+  input,
+  // ...rest of your rollup config
+})
+```
+
+### Accepted configuration
+
+#### Extensions
+
+By default, this module only searches for files ending with `.js`, `.jsx` or `.json` when trying a configuration path. You can add an `extensions` array to override this default.
+
+Note that adding extensions assumes the corresponding loader is correctly configured in Rollup.
+
+```js
+// rollup.config.js
+const { generateEntryPoints } = require('rollup-entrypoint-generator')
+
+// Allow svg, js, jsx as entrypoints
+export default generateEntryPoints('./src', { extensions: ['js', 'jsx', 'svg'] }).then(input => ({
+  input,
+  // ...rest of your rollup config
+})
+```
+
 ## Author
 
 👤 **Mathias Bernardeau**
