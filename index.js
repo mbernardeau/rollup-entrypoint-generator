@@ -79,7 +79,7 @@ const formatResultsForFile = opts => ([indexPath, { line }]) => {
   return line.map(formatResultForMatch(indexPath, opts)).filter(e => !!e)
 }
 
-const generateEntryPoints = async (sourcePath, opts = { extensions: ['js', 'jsx'] }) => {
+const generateEntryPoints = async (sourcePath, opts = { extensions: ['js', 'jsx', 'json'] }) => {
   try {
     const files = await findInFiles.find('export { default as ', sourcePath, 'index.js$')
 
