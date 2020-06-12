@@ -37,7 +37,10 @@ const findCorrectPath = (relPath, opts) => {
     return fileByExtension
   }
 
-  console.error(relPath, ' does not exist')
+  console.warn(`
+    Can't find any file at ${relPath} within the extensions ${opts.extensions}. 
+    If this file exists and can be defined as an entrypoint, add its extension in the option extensions.
+  `)
 }
 
 /**
@@ -67,6 +70,9 @@ const findExportDeclarationsForContent = (filePath, fileContent, opts) => {
 
       const relativePath = findCorrectPath(path.join(filePath, '..', componentPath), opts)
 
+      if (!relativePath) {
+        return []
+      }
       return exportedNames.map(componentName => ({ componentName, componentPath: relativePath }))
     },
   )
@@ -87,7 +93,6 @@ const findExportDeclarationsForFile = (filePath, opts) => {
       try {
         resolve(findExportDeclarationsForContent(filePath, data, opts))
       } catch (error) {
-        console.error(error)
         console.warn(`Could not parse ${filePath}. No entrypoint will be generated for this file.`)
       }
     })
@@ -125,46 +130,5 @@ const generateEntryPoints = async (sourcePath, opts = { extensions: ['js', 'jsx'
     console.error(e)
   }
 }
-
-/**
- * Gather results for an export line (`export { default as ... } from ...`)
- *
- * @param {String} indexPath Access path to the `index.js` file containing the export line
- * @param {Options} opts Options
- * @param {String} line Content of the export line
- * @return {Object}
- * @property {String} componentName Name of the exported component
- * @property {String} componentPath Relative path of the found entry point
- */
-// const formatResultForMatch = (indexPath, opts) => line => {
-//   const match = line.match(/^export \{ default as ([a-zA-Z]+) } from '(.\/[a-zA-Z-\\./]+)'$/)
-
-//   if (match === null) {
-//     // If line starts with '//', it's a commented export, ignoring...
-//     if (!line.startsWith('//')) {
-//       console.warn('Could not find default only export for "', line, '" in ', indexPath)
-//     }
-
-//     return null
-//   }
-
-//   const [, componentName, componentPath] = match
-
-//   const relativePath = findCorrectPath(path.join(indexPath, '..', componentPath), opts)
-
-//   return { componentName, componentPath: relativePath }
-// }
-
-// /**
-//  * Gather all results of a file in an array
-//  *
-//  * @param {Options} opts Options
-//  *
-//  * @param {Array<String, Object>} entry
-//  * @return {Array}
-//  */
-// const formatResultsForFile = opts => ([indexPath, { line }]) => {
-//   return line.map(formatResultForMatch(indexPath, opts)).filter(e => !!e)
-// }
 
 module.exports = { generateEntryPoints }
