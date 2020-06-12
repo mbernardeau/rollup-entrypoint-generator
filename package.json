@@ -20,13 +20,15 @@
   "author": "Mathias Bernardeau",
   "license": "MIT",
   "dependencies": {
-    "find-in-files": "~0.5.0",
-    "lodash.flatmap": "~4.5.0"
+    "acorn-loose": "^7.1.0",
+    "find": "^0.3.0",
+    "lodash.flatmap": "~4.5.0",
+    "lodash.flatten": "~4.4.0"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
+    "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.11.0",
-    "jest": "^25.5.1",
+    "jest": "^26.0.1",
     "prettier": "^2.0.5",
     "eslint-config-google": "^0.14.0"
   },
