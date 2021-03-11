@@ -11,6 +11,7 @@
     "url": "https://github.com/mbernardeau/rollup-entrypoint-generator/issues"
   },
   "engines": {
+    "npm": ">=7",
     "node": ">=10"
   },
   "scripts": {
