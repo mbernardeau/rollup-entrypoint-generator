@@ -56,7 +56,7 @@ const findCorrectPath = (relPath, opts) => {
 const findExportDeclarationsForContent = (filePath, fileContent, opts) => {
   const parsed = acorn.parse(fileContent, {
     sourceType: 'module',
-    ecmaVersion: opts.ecmaVersion,
+    ecmaVersion: opts.ecmaVersion || 2020,
   })
 
   return flatMap(
@@ -113,7 +113,7 @@ const findEligibleFiles = sourcePath => {
   })
 }
 
-const generateEntryPoints = async (sourcePath, opts = { extensions: ['js', 'jsx', 'json'], ecmaVersion: 2020 }) => {
+const generateEntryPoints = async (sourcePath, opts = { extensions: ['js', 'jsx', 'json'] }) => {
   try {
     const files = await findEligibleFiles(sourcePath)
     const entryPoints = flatten(
