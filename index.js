@@ -56,6 +56,7 @@ const findCorrectPath = (relPath, opts) => {
 const findExportDeclarationsForContent = (filePath, fileContent, opts) => {
   const parsed = acorn.parse(fileContent, {
     sourceType: 'module',
+    ecmaVersion: opts.ecmaVersion || 2020,
   })
 
   return flatMap(

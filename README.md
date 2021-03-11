@@ -84,6 +84,10 @@ export default generateEntryPoints('./src', { extensions: ['js', 'jsx', 'svg'] }
 })
 ```
 
+#### EcmaVersion
+
+Defines the ECMAScript version to parse. See [acorn's documentation](https://github.com/acornjs/acorn/blob/master/acorn/README.md#interface) for possible values. Defaults to `2020`.
+
 ## Author
 
 👤 **Mathias Bernardeau**
