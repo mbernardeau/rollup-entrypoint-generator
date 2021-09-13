@@ -31,7 +31,7 @@
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.1.0",
     "jest": "^26.6.3",
-    "prettier": "^2.3.1"
+    "prettier": "^2.4.0"
   },
   "prettier": {
     "printWidth": 100,
