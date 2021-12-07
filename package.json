@@ -16,7 +16,9 @@
   },
   "scripts": {
     "test": "jest",
-    "lint": "eslint index.js"
+    "lint": "eslint index.js",
+    "prettier:check": "prettier --check index.js index.spec.js",
+    "prettier:write": "prettier --write index.js index.spec.js"
   },
   "author": "Mathias Bernardeau",
   "license": "MIT",
