@@ -21,7 +21,7 @@
   "author": "Mathias Bernardeau",
   "license": "MIT",
   "dependencies": {
-    "acorn-loose": "^8.2.1",
+    "acorn-loose": "^8.3.0",
     "find": "^0.3.0",
     "lodash.flatmap": "~4.5.0",
     "lodash.flatten": "~4.4.0"
